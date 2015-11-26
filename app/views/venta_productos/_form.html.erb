@@ -1,0 +1,25 @@
+<%= form_for(@venta_producto) do |f| %>
+  <% if @venta_producto.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@venta_producto.errors.count, "error") %> prohibited this venta_producto from being saved:</h2>
+
+      <ul>
+      <% @venta_producto.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :venta_id %><br>
+    <%= f.select( "venta_id", Ventum.all.collect{|l| [ l.folio, l.id ] }, {include_blank: 'Seleccione Venta' }) %>
+  </div>
+  <div class="field">
+    <%= f.label :producto_id %><br>
+    <%= f.select( "producto_id", Producto.all.collect{|l| [ l.nombre, l.id ] }, {include_blank: 'Seleccione Producto'}) %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

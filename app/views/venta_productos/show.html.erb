@@ -1,0 +1,12 @@
+<p>
+  <strong> Venta: </strong>
+  <%= @venta_producto.ventum.folio %>
+</p>
+
+<p>
+  <strong> Producto: </strong>
+  <%= @venta_producto.producto.nombre %>
+</p>
+
+<%= link_to 'Edit', edit_venta_producto_path(@venta_producto) %> |
+<%= link_to 'Back', venta_productos_path %>

@@ -1,0 +1,26 @@
+<h2>Nombre: <%= @producto.nombre %></h2>
+
+<h3>Precio: <%= @producto.precio %></h3>
+
+<h3>Descripcion: <%= @producto.descripcion %></h3>
+
+
+<h2>Ventas del producto:</h2>
+<% @venta.each do |ventum| %>
+  <strong>Folio:</strong>
+  <%= ventum.folio %>
+  <strong>Fechacompra:</strong>
+  <%= ventum.fechacompra %>
+  <strong>Precio:</strong>
+  <%= ventum.precio %>
+  <strong>Cantidad:</strong>
+  <%= ventum.cantidad %>
+  <strong>Cliente:</strong>
+  <%= ventum.cliente.nombre %>
+
+  <br>
+<% end %>
+<br>
+
+<%= link_to 'Edit', edit_producto_path(@producto) %> |
+<%= link_to 'Back', productos_path %>
